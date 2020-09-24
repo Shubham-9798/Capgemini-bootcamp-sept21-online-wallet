@@ -1,5 +1,10 @@
 package com.capgemini.onlinewallet.entity;
 
+import javax.persistence.Entity;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@Entity
 public class User {
 	private String username;
 	private String password;

@@ -16,5 +16,10 @@ public class UserCredential {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public UserCredential(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 	
 }
