@@ -10,8 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+// import com.fasterxml.jackson.annotation.JsonBackReference;
+// import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class BankAccountDetails {
@@ -92,7 +92,7 @@ public class BankAccountDetails {
 	}
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JsonBackReference
+	// @JsonBackReference
 	private WalletAccount walletAccount;
 
 	

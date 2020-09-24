@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+// import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class WalletUser {
@@ -30,7 +30,7 @@ public class WalletUser {
 	
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "walletUser")
-	@JsonManagedReference
+	//@JsonManagedReference
 	private WalletAccount walletAccount;
 
 	public int getUserId() {

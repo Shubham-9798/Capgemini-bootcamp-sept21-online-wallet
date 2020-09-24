@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+// import com.fasterxml.jackson.annotation.JsonBackReference;
+// import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
@@ -63,12 +63,12 @@ public class WalletAccount {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "UserId")
-	@JsonBackReference
+	//@JsonBackReference
 	private WalletUser walletUser;
 
 	@OneToOne(cascade = CascadeType.ALL,mappedBy="walletAccount")
 	@JoinColumn(name = "AccountNo")
-	@JsonManagedReference
+	//@JsonManagedReference
 	private BankAccountDetails bankAccount;
 
 
