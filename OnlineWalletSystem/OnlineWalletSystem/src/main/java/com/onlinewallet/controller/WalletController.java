@@ -15,14 +15,14 @@ import com.onlinewallet.entities.Status;
 import com.onlinewallet.entities.WalletAccount;
 import com.onlinewallet.entities.WalletUser;
 import com.onlinewallet.exception.*;
-import com.onlinewallet.service.IService;
+import com.onlinewallet.service.IUserService;
 
 
 @RestController
 @RequestMapping("/WalletAccount")
 public class WalletController{
 	@Autowired 
-	IService walletService;
+	IUserService walletService;
 
 
 //create walletUser account

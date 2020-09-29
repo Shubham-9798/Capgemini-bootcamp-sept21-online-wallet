@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 
 import com.onlinewallet.entities.WalletUser;
 import com.onlinewallet.exception.*;
-import com.onlinewallet.service.IService;
+import com.onlinewallet.service.IUserService;
 
 
 @RestController
 @RequestMapping("/User")
 public class UserController {
 	@Autowired 
-	IService walletService;
+	IUserService walletService;
 	
 // create new wallet user 
 @PostMapping("/addUser")

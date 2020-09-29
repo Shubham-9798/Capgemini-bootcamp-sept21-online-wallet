@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.onlinewallet.entities.WalletTransaction;
 import com.onlinewallet.exception.LowBalanceException;
-import com.onlinewallet.service.IService;
+import com.onlinewallet.service.IUserService;
 
 
 @RestController
 public class TransactionController {
 	@Autowired 
-	IService walletService;
+	IUserService walletService;
 
 
 // transfer the fund from one account to the other account

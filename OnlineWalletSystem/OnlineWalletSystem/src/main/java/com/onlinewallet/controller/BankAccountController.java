@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.*;
 import com.onlinewallet.entities.BankAccount;
 import com.onlinewallet.entities.WalletAccount;
 import com.onlinewallet.exception.*;
-import com.onlinewallet.service.IService;
+import com.onlinewallet.service.IUserService;
 
 @RestController
 @RequestMapping("/BankAccount")
 public class BankAccountController {
 	
 	@Autowired 
-	IService walletService;
+	IUserService walletService;
 	
 
 	

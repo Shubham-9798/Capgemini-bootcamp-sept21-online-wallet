@@ -20,7 +20,7 @@ import com.onlinewallet.repository.WalletTransactionRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WalletService implements IService{
+public class UserService implements IUserService{
 	
 	@Autowired
 	BankAccountRepository bankAccountRepository;

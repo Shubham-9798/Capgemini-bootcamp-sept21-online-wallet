@@ -10,7 +10,7 @@ import com.onlinewallet.entities.WalletAccount;
 import com.onlinewallet.entities.WalletTransaction;
 import com.onlinewallet.entities.WalletUser;
 
-public interface IService {
+public interface IUserService {
 	
 	WalletUser showUserById(int userId);
 
