@@ -36,10 +36,9 @@ public interface IService {
 
 	double getBalance(int senderId);
 	
-	
 	public void createTransaction(int senderId,WalletTransaction transaction);
 	
-	@Query(value="select wt from WalletTransaction wt where wt.accountId= :accountId")
 	public List<WalletTransaction> findAllByAccountId(@Param("accountId")int accountId);
+	
 	List<WalletTransaction> getTransactionList(int accountId);
 }
