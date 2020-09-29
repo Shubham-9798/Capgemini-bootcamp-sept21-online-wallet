@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import com.onlinewallet.entities.WalletUser;
 import com.onlinewallet.exception.*;
 import com.onlinewallet.service.IService;
-import com.onlinewallet.utill.ResponseMsg;
+
 
 @RestController
 @RequestMapping("/User")
