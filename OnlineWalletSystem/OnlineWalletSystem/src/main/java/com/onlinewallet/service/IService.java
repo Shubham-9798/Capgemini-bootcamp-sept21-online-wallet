@@ -18,7 +18,7 @@ public interface IService {
 
 	String updateUser(int userId, WalletUser walletUser);
 
-	int checkUserLogin(String loginName, String password);
+	WalletUser checkUserLogin(String loginName, String password);
 	
 	BankAccount addBankAccount(BankAccount bankAccount);
 
@@ -35,6 +35,7 @@ public interface IService {
 	WalletAccount showAccount(int userId);
 
 	double getBalance(int senderId);
+	
 	
 	public void createTransaction(int senderId,WalletTransaction transaction);
 	

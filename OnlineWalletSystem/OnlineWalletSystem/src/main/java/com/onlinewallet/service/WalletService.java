@@ -11,13 +11,16 @@ import com.onlinewallet.entities.BankAccount;
 import com.onlinewallet.entities.WalletAccount;
 import com.onlinewallet.entities.WalletTransaction;
 import com.onlinewallet.entities.WalletUser;
-import com.onlinewallet.exception.EntityNotFoundException;
+import com.onlinewallet.exception.InvalidPasswordException;
+import com.onlinewallet.exception.UserNotFoundException;
 import com.onlinewallet.repository.BankAccountRepository;
 import com.onlinewallet.repository.UserRepository;
 import com.onlinewallet.repository.WalletAccountRepository;
 import com.onlinewallet.repository.WalletTransactionRepository;
+import org.springframework.stereotype.Service;
 
-public class Service implements IService{
+@Service
+public class WalletService implements IService{
 	
 	@Autowired
 	BankAccountRepository bankAccountRepository;
@@ -72,22 +75,21 @@ public class Service implements IService{
 			 }
 			else 
 			{
-				throw new EntityNotFoundException("User Not Found for Id" + userId);
+				throw new UserNotFoundException("User Not Found for Id " + userId);
 			}
 				
 	}
 
 	//authenticate user to login by using name and password
-	public int checkUserLogin(String loginName,String password) 
+	public WalletUser checkUserLogin(String loginName,String password) 
 	{
-		Optional<Integer> findById=userRepository.checkUserLogin(loginName,password);
-			if(findById.isPresent()) 
+		Optional<WalletUser> user = userRepository.checkUserLogin(loginName,password);
+			if(user.isPresent()) 
 			 {
-				Integer id=findById.get();
-					return id;
+					return user.get();
 			 }
-			else 
-				return 0;
+			else
+		 	 throw new InvalidPasswordException("User Not Found");
 	}
 	
 	//------------------------------------------------------

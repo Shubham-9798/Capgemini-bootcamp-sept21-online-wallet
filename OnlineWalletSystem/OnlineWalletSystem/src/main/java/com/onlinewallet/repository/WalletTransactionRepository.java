@@ -9,11 +9,10 @@ import com.onlinewallet.entities.WalletTransaction;
 
 import java.util.List;
 
-@Repository("walletTransactionRepository")
+@Repository
 public interface WalletTransactionRepository extends JpaRepository<WalletTransaction, Integer>{
 
-
-        @Query(value="select wt from WalletTransaction wt where wt.accountId= :accountId")
-     	public List<WalletTransaction> findAllByAccountId(@Param("accountId")int accountId);
+	@Query(value="select wt from WalletTransaction wt where wt.accountId= :accountId")
+	public List<WalletTransaction> findAllByAccountId(@Param("accountId")int accountId);
 
 }

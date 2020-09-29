@@ -37,7 +37,7 @@ public BankAccount findBankAccount(@PathVariable int walletId)
 		bank=walletService.findBankAccount(walletId);
 			if (bank == null)
 			{
-				throw new EntityNotFoundException("Record Not Found");
+				throw new UserNotFoundException("Record Not Found");
 		    }
 		return bank;
 	}

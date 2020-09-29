@@ -42,14 +42,14 @@ public Integer createWalletUser(@PathVariable int userId) {
 
 //show account details on the basis of id
 @GetMapping("/seeWalletAccount/{id}")
-@ExceptionHandler(EntityNotFoundException.class)
+@ExceptionHandler(UserNotFoundException.class)
 public WalletAccount showAccount(@PathVariable("id") int walletId) 
 {
 	WalletAccount wallet = new WalletAccount();
 	wallet = walletService.showAccountById(walletId);
       if (wallet == null)
       {
-			throw new EntityNotFoundException("Record Not Found");
+			throw new UserNotFoundException("Record Not Found");
       }
 	return wallet;
 }

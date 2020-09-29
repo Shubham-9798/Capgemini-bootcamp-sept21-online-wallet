@@ -1,12 +1,16 @@
   package com.onlinewallet.controller;
 
+import com.onlinewallet.exception.InvalidPasswordException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.onlinewallet.entities.WalletUser;
 import com.onlinewallet.exception.*;
 import com.onlinewallet.service.IService;
+import com.onlinewallet.utill.ResponseMsg;
 
 @RestController
 @RequestMapping("/User")
@@ -22,7 +26,7 @@ public WalletUser addUser(@RequestBody WalletUser user)
    add = walletService.addUser(user);
       if (user == null)
       {
-		throw new EntityNotFoundException("Record Not Found");
+		throw new UserNotFoundException("Record Not Found");
 
 	  } 
 		return add;
@@ -30,14 +34,14 @@ public WalletUser addUser(@RequestBody WalletUser user)
 
 // get user details on the basis of Id
 @GetMapping("/findUserById/{id}")
-@ExceptionHandler(EntityNotFoundException.class)
+@ExceptionHandler(UserNotFoundException.class)
 public WalletUser showUserById(@PathVariable("id") int userId) 
 {
 		WalletUser user = new WalletUser();
 		user = walletService.showUserById(userId);
         if (user == null)
         {
-			throw new EntityNotFoundException("Record Not Found");
+			throw new UserNotFoundException("Record Not Found");
         }
 			return user;
 }
@@ -52,14 +56,24 @@ public String updateUser(@PathVariable(value = "id") int userId,@Validated @Requ
 
 //check user login to the wallet portal
 @GetMapping("/login/{loginName}/{password}")
-public String validUserLogin(@PathVariable("loginName") String loginName,@PathVariable("password") String password)
+public WalletUser validUserLogin(@PathVariable("loginName") String loginName,@PathVariable("password") String password)
 {
-	int x= walletService.checkUserLogin(loginName,password);
-				if(x==1) {
-					return "login successful";
+	WalletUser user = walletService.checkUserLogin(loginName,password);
+				if(user != null) {
+					return user;
 				}
-				else
-					return "login denied";
-			}
+				
+	throw new UserNotFoundException("User Not Found");
+}
+
+//@ExceptionHandler({ InvalidPasswordException.class, UserNotFoundException.class })
+//public ResponseEntity<Object> handleException(InvalidPasswordException msg) {
+//	ResponseMsg object = new ResponseMsg();
+//	object.setMsg(msg.getMessage());
+//	object.setStatusCode("0");
+//	
+//	return new ResponseEntity<>(object, HttpStatus.valueOf(422));
+//}
+
 	
 }
