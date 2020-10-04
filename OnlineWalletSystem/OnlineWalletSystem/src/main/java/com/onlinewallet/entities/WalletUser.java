@@ -24,7 +24,7 @@ public class WalletUser {
 	private String Password;
 	
 	@Column(name="PhoneNumber")
-	private long PhoneNumber;
+	private String PhoneNumber;
 	
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "walletUser")
@@ -55,11 +55,11 @@ public class WalletUser {
 		Password = password;
 	}
 
-	public long getPhoneNumber() {
+	public String getPhoneNumber() {
 		return PhoneNumber;
 	}
 
-	public void setPhoneNumber(long phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		PhoneNumber = phoneNumber;
 	}
 	

@@ -19,7 +19,7 @@ public class BankAccountController {
 	
 //add bank account to the wallet
 @PostMapping("/addAccount/{walletId}")
-public String addBankAccount(@PathVariable int walletId,@RequestBody BankAccount bankAccount) 
+public String addBankAccount(@PathVariable int walletId, @RequestBody BankAccount bankAccount) 
 	{
 		BankAccount bank=new BankAccount();
 		WalletAccount account = new WalletAccount();

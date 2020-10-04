@@ -18,8 +18,10 @@ import com.onlinewallet.repository.UserRepository;
 import com.onlinewallet.repository.WalletAccountRepository;
 import com.onlinewallet.repository.WalletTransactionRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class UserService implements IUserService{
 	
 	@Autowired

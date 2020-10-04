@@ -22,6 +22,7 @@ public class UserController {
 @PostMapping("/addUser")
 public WalletUser addUser(@RequestBody WalletUser user)
 {
+	System.out.println(user.toString());
    WalletUser add = new WalletUser();
    add = walletService.addUser(user);
       if (user == null)
