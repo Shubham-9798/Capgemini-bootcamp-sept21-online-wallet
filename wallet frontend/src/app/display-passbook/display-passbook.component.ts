@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { WalletTransaction } from '../models/WalletTransaction';
 import { WalletService } from '../wallet.service';
-import { WalletsignupService } from '../walletsignup.service';
-import { DatePipe } from '@angular/common';
+
 import { WalletAccount } from '../signup/WalletAccount';
 
 @Component({
@@ -17,9 +15,7 @@ export class DisplayPassbookComponent implements OnInit {
   transactions: Observable<WalletTransaction[]>;
   walletAccount: WalletAccount = new WalletAccount();
 
-  constructor(private walletService: WalletService,
-    private router: Router,private datePipe: DatePipe,
-    private walletsignupService: WalletsignupService) { }
+  constructor(private walletService: WalletService) { }
 
     accountNumber: number;
     accountId
@@ -27,11 +23,10 @@ export class DisplayPassbookComponent implements OnInit {
 
 
   ngOnInit(): void {
-    let retrievedObject:any = JSON.parse(localStorage.getItem('wallet'))
-    console.log(retrievedObject)
+    let retrievedObject:any = JSON.parse(localStorage.getItem('wallet')) // localstorage
+ //   console.log(retrievedObject)
     
      if(retrievedObject){
-          console.log(2)
           this.accountId = retrievedObject.accountId
           this.checkBankInfo();
         }
@@ -58,6 +53,7 @@ export class DisplayPassbookComponent implements OnInit {
     
   }
 
+  // is bank account added
   checkBankInfo(){
 
     this.walletService.checkBanktoWallet(this.accountId).subscribe(

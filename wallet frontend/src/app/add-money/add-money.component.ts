@@ -25,7 +25,6 @@ export class AddMoneyComponent implements OnInit {
   flag : boolean=false;
 
   ngOnInit(): void {
-    
     let retrievedObject:any = JSON.parse(localStorage.getItem('wallet'))
     console.log(retrievedObject)
     
@@ -34,8 +33,7 @@ export class AddMoneyComponent implements OnInit {
           this.checkBankInfo();
           this. getBalance();
         }
-
-      }
+  }
 
   getBalance(){
     this.walletService.getAccountBalance(this.accountId).subscribe(
@@ -50,8 +48,7 @@ export class AddMoneyComponent implements OnInit {
 
   addMoney(){
     if(this.isValidFlag)
-    this.walletService.addMoney(this.amount,
-      this.accountId).subscribe(
+    this.walletService.addMoney(this.amount, this.accountId).subscribe(
         data=>{
           console.log(data);
           this.getBalance();
@@ -83,6 +80,7 @@ export class AddMoneyComponent implements OnInit {
   }
 
   isValid(){
+
     if(this.amount==undefined){
       this.isValidFlag = false;
     }

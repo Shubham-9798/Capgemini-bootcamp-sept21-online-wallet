@@ -31,7 +31,7 @@ export class TransferMoneyComponent implements OnInit {
     
      if(retrievedObject){
           this.accountId = retrievedObject.accountId
-          this. getBalance();
+          // this. getBalance();
         }
 
   }
@@ -43,7 +43,7 @@ export class TransferMoneyComponent implements OnInit {
       amount: this.amount,
       receiverAccountId: this.reciverAccountID,
       dateOfTransaction: new Date(),
-      accountBalance:234
+      accountBalance:null
     }
     console.log(this.transaction)
     this.walletService.createTransaction(this.transaction, this.accountId).subscribe(
@@ -52,30 +52,22 @@ export class TransferMoneyComponent implements OnInit {
         if(data =="Transaction Created"){
           alert("Money Transferred Successfully");
         }
-        else{
-          alert("Your transaction declined");
-        }
+
       }, error=>{
+        alert("Your transaction declined");
         console.log(error);
       }
     )
     this.router.navigate(['/home']);
   }
 
-  getBalance(){
-    this.walletService.getAccountBalance(this.accountId).subscribe(
-        data=>{
-          console.log(data)
-          this.accountBalance = data;
-        }, error=>{
-          console.log(error);
-        }
-    )
-  }
 
   isValid(){
     console.log(this.transferType, this.accountId, this.amount)
-    if(this.amount==undefined || this.accountId==undefined || this.transferType==undefined){
+
+    if(this.amount==undefined || this.accountId==undefined || this.transferType==undefined 
+      || Number(this.amount)<= 0
+      ){
       this.isValidFlag = false;
       console.log("fill")
     }

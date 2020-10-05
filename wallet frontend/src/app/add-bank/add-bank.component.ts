@@ -30,10 +30,11 @@ export class AddBankComponent implements OnInit {
   ngOnInit(): void {
     
     let retrievedObject:any = JSON.parse(localStorage.getItem('wallet'))
-    console.log(retrievedObject)
+   // console.log(retrievedObject)
     this.accountId = retrievedObject.accountId
     this.checkBankInfo();
   }
+  // is bank account added
   checkBankInfo(){
 
     this.walletService.checkBanktoWallet(this.accountId).subscribe(
@@ -50,7 +51,7 @@ export class AddBankComponent implements OnInit {
     );
   }
 
-
+ // add bank account
   addAccount()
   {
     this.userDetails = {accountNo: this.accountNo, holderName: this.holderName, ifscCode: this.ifscCode, bankName: this.bankName}
