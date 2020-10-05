@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
 import { BankDetailsComponent } from './bank-details/bank-details.component';
 import { HeaderComponent } from './header/header.component';
+import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { HeaderComponent } from './header/header.component';
     SignupComponent,
     LoginComponent,
     BankDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpdatePasswordComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

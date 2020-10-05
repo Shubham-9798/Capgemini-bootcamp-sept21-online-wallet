@@ -9,6 +9,8 @@ import { AddBankComponent } from './add-bank/add-bank.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component'; 
 import { BankDetailsComponent } from './bank-details/bank-details.component';
+import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'default', pathMatch:'full'},
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path:'add-bank', component:AddBankComponent},
   {path:'display-passbook', component:DisplayPassbookComponent},
   {path:'signup', component:SignupComponent },
-  {path:'login', component:LoginComponent }
+  {path:'login', component:LoginComponent },
+  {path:'update-password', component:UpdatePasswordComponent },
+  {path: '**', component:PageNotFoundComponent}
   
   
   

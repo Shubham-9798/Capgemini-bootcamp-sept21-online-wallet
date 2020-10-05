@@ -8,7 +8,9 @@ import { WalletUserCredential } from './models/WalletUserCredential';
   providedIn: 'root'
 })
 export class WalletsignupService {
-
+  options:Object = {
+    responseType: 'text'
+  }
   walletAccountId: number;
 
   basurl1: string="http://localhost:8071/";
@@ -27,4 +29,7 @@ export class WalletsignupService {
     return this.http.post(`${this.basurl1+"User/login"}`, walletUser);
   }
   
+  updatePassword(data:Object, userId) {
+    return this.http.put(`${this.basurl1+"User/updatePass/"+ userId}`, data, this.options);
+  }
 }
