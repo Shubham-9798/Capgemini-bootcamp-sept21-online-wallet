@@ -1,0 +1,17 @@
+.container-fluid
+{
+    height:27cm;
+   
+
+}
+
+.image{
+    height:40em; background-size:cover; width:auto;
+    background-image:url("https://gotnpayments.com/wp-content/uploads/2019/02/payment-gateway-banner.jpg");
+    background-position:50% 50%;
+    opacity:1;
+
+  }
+.jumbotron {
+    padding: 1rem 1rem;
+}

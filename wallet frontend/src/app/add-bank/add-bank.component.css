@@ -1,0 +1,35 @@
+.form-control
+{
+    width:30%;
+    align-content: center;
+}
+.btn-primary
+{
+    background-color:green;
+    width: 30%;
+}
+.jumbotron1
+{
+    background-image: url(./images/bg.jpg);
+    height:100vh;
+}
+
+.custom-select
+{
+    width:30%;
+}
+.navbar{
+    height:8%;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.image{
+    height:40em; background-size:cover; width:auto;
+    background-image:url("https://gotnpayments.com/wp-content/uploads/2019/02/payment-gateway-banner.jpg");
+    background-position:50% 50%;
+    opacity:1;
+
+  }

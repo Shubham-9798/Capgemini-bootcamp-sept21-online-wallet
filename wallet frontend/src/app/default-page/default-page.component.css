@@ -1,0 +1,39 @@
+.image{
+    height:40em; background-size:cover; width:auto;
+    background-image:url("https://gotnpayments.com/wp-content/uploads/2019/02/payment-gateway-banner.jpg");
+    background-position:50% 50%;
+    opacity:1;
+
+  }
+h1{
+    color:rgb(107, 4, 4);
+    text-align:justify;
+	
+}
+h3{
+    color:black;
+    text-align:justify;
+	
+}
+a {
+        color:black;
+        text-decoration: none;
+ }
+a:hover 
+{
+        color:black;
+        text-decoration: none;
+}
+
+.container {
+    position: absolute;
+    margin: 20px;
+    width: auto;
+  }
+  
+  /* The navbar */
+  .topnav {
+    overflow: hidden;
+    background-color:transparent;
+  }
+  

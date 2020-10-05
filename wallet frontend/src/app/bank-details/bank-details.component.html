@@ -1,0 +1,38 @@
+<body class="image">
+    <app-header></app-header><br>
+                <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <router-outlet></router-outlet>
+                <h4 style="color: green;">Bank account is connected</h4>
+                
+                <h2>Bank Account Details</h2>
+                <hr>
+                <div>
+                    <table  *ngIf="isDataLoaded" style="border: dodgerblue;">
+                        <tr>
+                            <td><b>Account Number:</b></td>
+                            <td>{{userBankDetails.accountNo}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Holder Name:</b></td>
+                            <td>{{userBankDetails.holderName}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>IFSC code:</b></td>
+                            <td>{{userBankDetails.ifscCode}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Bank Name:</b></td>
+                            <td>{{userBankDetails.bankName}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>

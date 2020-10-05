@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="image"> 
+           <app-header></app-header>
+<br><br>
+                 <h2 style="text-align:center;color:brown">Transfer Money</h2>
+    <br><br>
+   <div class="container">
+                <form #f1="ngForm" (ngSubmit)="isValid()" autocomplete="off">
+          <div class="form-group">
+            <label><b>Enter Amount :</b></label>
+            <input type="text" class="form-control col-sm-12" [(ngModel)]="amount" #a="ngModel" required name="amount">
+            <div *ngIf="f1.submitted && a.invalid">
+              <div *ngIf="a.errors.required" class="text-danger"> *Account Number is Required </div>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="reciverAccountID"><b>Receiver Account Id:</b></label>
+            <input type="text" class="form-control col-sm-12" [(ngModel)]="reciverAccountID" #r="ngModel" required name="reciverAccountID">
+            <div *ngIf="f1.submitted && r.invalid">
+              <div *ngIf="r.errors.required" class="text-danger"> *Account Number is Required </div>
+              </div>
+          </div>
+          <input type="radio" value="Financial Transaction" name="transferType" [(ngModel)]="transferType" #f="ngModel" required
+            style="font-size: large;"><b>Financial Transaction</b>
+          <br>
+          <input type="radio" value="Buisness Transaction" name="transferType" [(ngModel)]="transferType" #b="ngModel" required
+            style="font-size: large;"><b>Buisness Transaction</b>
+          <br>
+          <input type="radio" value="Payment" name="transferType" [(ngModel)]="transferType" #p="ngModel" required
+            style="font-size: large;"><b>Payment</b>
+          <br><br>
+          <button type="submit" class="btn btn-success" style="align-items: center;">
+            <h2> Transfer Money</h2>
+          </button>
+        </form>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <app-header></app-header>
+  <div class="image">   <br><br>
+
+     <div *ngIf="!isBankAccountAdded">
+        <h5 style="color: red; text-align: center;">Please add your bank account!</h5>
+      </div><br><br>
+        <h3 style="text-align: center;color: brown;">Add Money</h3>
+<br><br>
+    <div class="container">
+      
+      <div>
+      <br>
+      <br>
+      
+      
+      <div *ngIf="flag">
+        <b>
+          <h3 style="text-align: center;">Available Balance &#x20B9;{{balance}}</h3>
+        </b>
+       </div>
+      
+      <div *ngIf="!isValidFlag && f1.submitted">
+        <h3 style="color:red">Please Enter the amount!</h3>
+      </div>
+      <form #f1="ngForm" (ngSubmit)="isValid()" autocomplete="off">
+        <div class="form-group">
+
+          <label for="amount"><b>Enter Amount:</b></label>
+          <input [(disabled)]="!isBankAccountAdded"  type="text" class="form-control col-sm-12" [(ngModel)]="amount" name="amount">
+        </div>
+        <button *ngIf="isLoaded" type="submit" id="addButton" class="btn btn-primary" style="align-items: center;">
+          <b>
+            <h3> Add Money</h3>
+          </b>
+        </button>
+      </form>
+    </div>
+    
+  </div>
+  </div>
+</body>
+</html>

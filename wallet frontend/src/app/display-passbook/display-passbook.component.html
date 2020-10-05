@@ -1,0 +1,62 @@
+<body>
+    <div class="image">
+
+    <app-header></app-header>
+    <div class="container">
+        <div *ngIf="!isBankAccountAdded">
+            <h5 style="color: red; text-align: center;">Please add your bank account!</h5>
+          </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <router-outlet></router-outlet>
+                <h2>Passbook Details</h2>
+                <hr>
+                <div>
+                    <table style="border: dodgerblue;">
+                        <tr>
+                            <td><b>Wallet Account Number:</b></td>
+                            <td>{{walletAccount.accountId}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Wallet Balance:</b></td>
+                            <td>&#x20B9;{{walletAccount.accountBalance}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Account Status:</b></td>
+                            <td>{{walletAccount.status}}</td>
+                        </tr>
+                    </table>
+                    <div>
+                        <h3 style="text-align: center;">Transactions</h3>
+                    </div>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>TransactionId</th>
+                                <th>Description</th>
+                                <th>Date Of Transaction</th>
+                                <th>Amount</th>
+                                <th>Receiver AccountId</th>
+                                <th>Previous Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let transaction of transactions | async">
+                                <td>{{transaction.transactionId}}</td>
+                                <td>{{transaction.description}}</td>
+                                <td>{{transaction.dateOfTransaction | date:'short'}}</td>
+                                <td>{{transaction.amount}}</td>
+                                <td>{{transaction.receiverAccountId}}</td>
+                                <td>{{transaction.accountBalance}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>

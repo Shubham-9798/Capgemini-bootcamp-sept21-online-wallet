@@ -1,0 +1,54 @@
+  <div class="image">    
+  <app-header></app-header>
+  <br>
+  <br>
+  <br>
+  <div *ngIf="!isBankAdded">
+    <h5 style="color: red; text-align: center;">Please add your bank account!</h5>
+  </div>
+  <div class="container">
+  <form #bankForm="ngForm" autocomplete="off">
+  <div class="form-group">
+    <label>ACCOUNT NUMBER : </label>
+    <input type="text" required class="form-control" id="accountNo" name="accountNo" [(ngModel)]="accountNo"  #a="ngModel" >
+    <div *ngIf="bankForm.submitted && a.invalid">
+      <div *ngIf="a.errors.required" class="text-danger"> *Account Number is Required </div>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label>ACCOUNT HOLDER'S NAME : </label>
+    <input class="form-control" required id="holderName" name="holderName" [(ngModel)]="holderName"  #h="ngModel" >
+    <div *ngIf="bankForm.submitted && h.invalid">
+      <div *ngIf="h.errors.required" class="text-danger"> *Account Holder Name is Required </div>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label>IFSC CODE : </label>
+    <input class="form-control" required id="ifscCode" name="ifscCode" [(ngModel)]="ifscCode"  #i="ngModel" >
+    <div *ngIf="bankForm.submitted && i.invalid">
+      <div *ngIf="i.errors.required" class="text-danger"> *IFSC code is Required </div>
+      </div>
+  </div>
+
+  <div class="form-group">BANK NAME :
+    <br>
+    <select class="browser-default custom-select" required id="bankName" name="bankName" [(ngModel)]="bankName"  #b="ngModel" >
+      <option value="AXIS Bank">AXIS Bank</option>
+      <option value="State Bank of India">State bank of India</option>
+      <option value="Uco Bank">UCO Bank</option>
+      <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
+      <option value="Syndicate Bank">Syndicate Bank</option>
+      <option value="Bank of Baroda">Bank of Baroda</option>
+    </select>
+    <div *ngIf="bankForm.submitted && b.invalid">
+      <div *ngIf="b.errors.required" class="text-danger"> *Bank Name is Required </div>
+      </div>
+  </div>
+
+  <button class="btn btn-primary btn-lg btn-block" type="submit" value="AddBank" (click)="validate()">Submit</button>
+
+</form>
+</div>
+</div>
