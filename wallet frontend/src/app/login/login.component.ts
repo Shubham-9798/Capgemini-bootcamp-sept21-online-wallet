@@ -21,7 +21,12 @@ export class LoginComponent implements OnInit {
     private walletsignupService: WalletsignupService) { }
 
   ngOnInit(): void {
-  
+    const userInfo = localStorage.getItem("userInfo")
+    const wallet = localStorage.getItem("wallet")
+    if(userInfo && wallet) {
+      this.router.navigate(['/home']);
+    }
+    // console.log(userInfo, wallet)
   }
 
   onLogin(){
